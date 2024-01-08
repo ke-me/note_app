@@ -6,13 +6,16 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "dev": "vite",
     "preview": "vite preview",
+    "build": "vite build && cp -r dist docs", 
     "rm": "rm -rf docs",
     "mv": "mv build docs",
-    "git": "git add . && git commit && git push origin master",
-    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git",
+             
+    "rebuild": "vite build && rm -R docs && cp -r dist docs",
+    "git": "git add . && git commit && git push origin main"
   },
   "dependencies": {
     "react": "^18.2.0",
